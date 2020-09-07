@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chaining", "Chaining\Chaining.csproj", "{18D9622D-971F-41D6-8F9B-9816E0880CC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FanOutFanIn", "FanOutFanIn\FanOutFanIn.csproj", "{86B3C71A-D982-4D23-B28C-24E75C44E014}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{18D9622D-971F-41D6-8F9B-9816E0880CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18D9622D-971F-41D6-8F9B-9816E0880CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18D9622D-971F-41D6-8F9B-9816E0880CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86B3C71A-D982-4D23-B28C-24E75C44E014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86B3C71A-D982-4D23-B28C-24E75C44E014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86B3C71A-D982-4D23-B28C-24E75C44E014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86B3C71A-D982-4D23-B28C-24E75C44E014}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
