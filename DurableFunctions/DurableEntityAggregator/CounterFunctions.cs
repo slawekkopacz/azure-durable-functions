@@ -10,12 +10,18 @@ namespace DurableEntityAggregator
 {
     public static class CounterFunctions
     {
-        [FunctionName("Flow")]
+        [FunctionName("FlowOrchestrator")]
         public static async Task RunOrchestrator(
-            [OrchestrationTrigger] IDurableOrchestrationContext context,
-            [DurableClient] IDurableEntityClient entityClient)
+            [OrchestrationTrigger] IDurableOrchestrationContext context)
         {
+            await context.CallActivityAsync("Flow", null);
+        }
 
+        [FunctionName("Flow")]
+        public static async Task Flow([ActivityTrigger] object obj,
+            [DurableClient] IDurableEntityClient entityClient,
+            ILogger log)
+        {
             IList<Task> tasks = new List<Task>();
             // The "Counter/{metricType}" entity is created on-demand.
             var entityA = new EntityId("Counter", "A");
@@ -48,7 +54,7 @@ namespace DurableEntityAggregator
             ILogger log)
         {
             // Function input comes from the request content.
-            string instanceId = await starter.StartNewAsync("Flow", null);
+            string instanceId = await starter.StartNewAsync("FlowOrchestrator", null);
 
             log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
 
