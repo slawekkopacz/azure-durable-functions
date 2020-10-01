@@ -67,7 +67,7 @@ namespace DurableEntityAggregator
             [DurableClient] IDurableEntityClient entityClient,
             ILogger log)
         {
-            return (await entityClient.ReadEntityStateAsync<Counter>(new EntityId("Counter", "A"))).EntityState
+            return (await entityClient.ReadEntityStateAsync<Counter>(new EntityId("Counter", "C"))).EntityState
                 .CurrentValue;
         }
     }

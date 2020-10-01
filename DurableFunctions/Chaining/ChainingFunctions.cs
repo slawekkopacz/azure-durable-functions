@@ -28,6 +28,7 @@ namespace Chaining
             var x = await context.CallActivityAsync<string>("Chaining_Hello", "X");
             var y = await context.CallActivityAsync<string>("Chaining_Hello", x);
             var z = await context.CallActivityAsync<string>("Chaining_Hello", y);
+
             outputs.Add(z);
             // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
             return outputs;

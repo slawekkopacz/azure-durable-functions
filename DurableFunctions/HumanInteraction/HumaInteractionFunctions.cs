@@ -2,9 +2,7 @@ using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.Http;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Extensions.DurableTask;
@@ -21,7 +19,7 @@ namespace HumanInteraction
             await context.CallActivityAsync("RequestApproval", null);
             using (var timeoutCts = new CancellationTokenSource())
             {
-                DateTime dueTime = context.CurrentUtcDateTime.AddMinutes(3);
+                DateTime dueTime = context.CurrentUtcDateTime.AddMinutes(2);
                 Task durableTimeout = context.CreateTimer(dueTime, timeoutCts.Token);
 
                 Task<bool> approvalEvent = context.WaitForExternalEvent<bool>("ApprovalEvent");
